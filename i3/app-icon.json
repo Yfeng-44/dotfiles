@@ -1,0 +1,21 @@
+{
+    "firefox": "firefox",
+    "chromium-browser": "chrome",
+    "chrome": "chrome",
+    "google-chrome": "chrome",
+    "Alacritty": "terminal",
+    "thunderbird": "envelope",
+    "jetbrains": "edit",
+    "Code - Insiders": "code",
+    "nautilus": "folder-open",
+    "Dolphin": "folder-open",
+    "Mailspring": "mail-bulk",
+    "winds": "comment-alt",
+    "spotify": "spotify",
+    "vlc": "play",
+    "konsole": "terminal",
+    "signal": "comment",
+    "_no_match": "question",
+    "Mendeley Desktop": "file-pdf",
+    "typora": "quote-right"
+}

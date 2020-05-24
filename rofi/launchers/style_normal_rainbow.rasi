@@ -1,0 +1,123 @@
+/*
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Mail : adi1090x@gmail.com
+ * Github : @adi1090x
+ * Reddit : @adi1090x
+ *
+ */
+
+configuration {
+    drun-display-format: "{icon} {name}";
+    display-drun: "Applications";
+	show-icons: true;
+  icon-theme: "deepin";
+	location: 0;
+	yoffset: 0;
+    xoffset: 0;	
+	fake-transparency: false;
+	hide-scrollbar: true;
+  columns: 1;
+	bw: 0;
+    fullscreen: false;
+	terminal: "alacritty";
+	sidebar-mode: false;
+}
+
+/* colors */
+* {
+red: #EC5250;
+blue: #25B1CA;
+green: #2ABB9C;
+purple: #5537D2;
+white: #ffffff;
+}
+
+// black
+/*
+* {
+bg: #00000099;
+bg-sel: #00000066;
+fg: #ffffff;
+}
+*/
+
+// white
+* {
+bg: #ffffff4d;
+bg-sel: #ffffff4d;
+fg: #ffffff;
+}
+
+* {
+  background-color: #00000000;
+  font: "JetBrains Mono 14";
+}
+
+
+* {
+  text-font:                            "JetBrains Mono 14";
+
+  inputbar-margin:                      3px 3px;
+  prompt-padding:                       10px 10px;
+  entry-padding:                        10px 0px 10px 0px;
+  list-element-padding:                 10px;
+  list-element-margin:                  @inputbar-margin;
+  list-element-border:                  0px 0px 0px 4px;
+
+  apps-textbox-prompt-colon-padding:    10px -5px 0px 0px;
+}
+
+window {
+  height: 40%;
+  width: 20%;
+  padding: 0px 0px;
+  transparency: "real";
+}
+
+mainbox {
+  children: [ inputbar, listview ];
+  padding: 0% 0% 0% 0%;
+  background-color: @bg;
+  border: 0;
+  border-radius: 8;
+  border-color: @bg;
+}
+
+listview {
+  columns: 1;
+  padding: 0;
+  spacing: 2;
+}
+
+element {
+  border: 0;
+  text-color: #ff6600;
+  orientation: vertical;
+  padding: 12 12 12 12;
+  border-radius: 0;
+}
+
+element selected {
+  background-color: @bg-sel;
+  border-color: @bg;
+  text-color: #000000;
+}
+
+inputbar {
+  children: [entry];
+  padding: 4 4 4 4;
+  /* change this colors to change style*/
+  background-color: @bg;
+  border: 0 0 0 0;
+  border-color: @fg;
+}
+
+prompt {
+  enabled: false;
+}
+
+entry {
+  text-color: @white;
+  padding: 8 12 8 12;
+}
