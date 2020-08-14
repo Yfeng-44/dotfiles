@@ -17,5 +17,6 @@
     "signal": "comment",
     "_no_match": "question",
     "Mendeley Desktop": "file-pdf",
-    "typora": "quote-right"
+    "typora": "quote-right",
+    "Emacs":"i-cursor"
 }

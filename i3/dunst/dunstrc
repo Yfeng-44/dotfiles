@@ -2,7 +2,7 @@
     ### Display ###
     monitor = DP-2 HDMI-1-1
     follow = mouse
-    geometry = "300x20-14+41"
+    geometry = "350x22-14+41"
     indicate_hidden = yes
     shrink = no
     transparency = 15
@@ -11,7 +11,7 @@
     padding = 8
     horizontal_padding = 8
     frame_width = 1.
-    frame_color = "#AD3D37"
+    frame_color = "#bd93f9"
     separator_color = frame
     sort = yes
     idle_threshold = 120
@@ -72,22 +72,22 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#222222"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#282a36"
+    foreground = "#f8f8f2"
+    timeout = 14
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#121212"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#282a36"
+    foreground = "#f8f8f2"
+    timeout = 25
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#900000"
+    background = "#282a36"
     foreground = "#ffffff"
     frame_color = "#ff0000"
-    timeout = 0
+    timeout = 20
     #icon = /path/to/icon
 
 # vim: ft=cfg

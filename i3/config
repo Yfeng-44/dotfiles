@@ -6,8 +6,12 @@ new_float normal
 hide_edge_borders none
 
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 3
 bindsym $mod+n border normal
+
+# border 
+default_border pixel 2
+
 
 font xft:URWGothic-Book 11
 
@@ -150,6 +154,7 @@ for_window [title="i3_help"] floating enable sticky enable border normal
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Manjaro-hello"] floating enable
+for_window [class="Typora"] floating enable sticky enable
 for_window [class="Manjaro Settings Manager"] floating enable border normal
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable sticky enable border normal
@@ -170,6 +175,7 @@ for_window [class="Xfburn"] floating enable
 for_window [title="Dolphin"] floating enable
 for_window [title="Yakuake"] floating enable
 for_window [class="Ao"] floating enable border normal
+for_window [title="ARandR"] floating enable
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
@@ -223,32 +229,36 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-#bar {
-#  font pango: DejaVu Sans Mono for Powerline 12
-#  colors {
-#    background #00000019
-#    statusline #FFFFFF99
-#  }
-#  i3bar_command i3bar -t
-#font pango: Jetbrains Mono 14
-#  position top
-#	tray_output none
-#  status_command /usr/bin/bumblebee-status -m title spotify redshift bluetooth battery pasink pasource datetime time dunst system -p root.path=/ time.format="%H:%M:%S" datetime.format="%a %b %d %Y" -t dracula-powerline
-#}
+bar {
+  font pango: DejaVu Sans Mono 11
+  colors {
+  background #282a36
+  statusline #44475a
+  focused_workspace #6272a4 #bd93f9 #f8f8f2
+  active_workspace #44475a #44475a #f8f8f2
+  inactive_workspace #44475a #44475a #f8f8f2
+  urgent_workspace #44475a #44475a #f8f8f2
+  }
+  i3bar_command i3bar -t
+  font pango: DejaVu Sans Mono 11
+  position top
+	tray_output none
+  status_command /usr/bin/bumblebee-status -m  spotify bluetooth battery-upower pasink pasource cpu datetime time arandr dunst shortcut  -p root.path=/ time.format="%H:%M:%S" datetime.format="%a %b %d %Y" shortcut.cmds="/home/fengyuan/.config/rofi/power/powermenu.sh" shortcut.labels=" ⏻ "  battery-upower.showremaining=false  -t iceberg-rainbow
+}
 
 
 
 
 
-exec_always --no-startup-id feh --bg-scale /home/fengyuan/Pictures/alena-aenami-aenami-lunar.jpg
+exec_always --no-startup-id feh --bg-center --no-fehbg --image-bg "#292d3e" /home/fengyuan/pacwall.png
 exec_always --no-startup-id xbacklight
-#exec_always --no-startup-id dunst -config ~/.config/i3/dunst/dunstrc
-exec_always -- no-startup-id killall -q deadd-notification-center
-exec_always --no-startup-id deadd-notification-center
+exec_always --no-startup-id dunst -config ~/.config/i3/dunst/dunstrc
+#exec_always -- no-startup-id killall -q deadd-notification-center
+#exec_always --no-startup-id deadd-notification-center
 exec_always --no-startup-id fcitx
 exec_always --no-startup-id greenclip daemon
 # Autostart applications
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -257,10 +267,18 @@ exec --no-startup-id clipit
 exec_always --no-startup-id fix_xcursor
 #exec_always --no-startup-id $HOME/.config/polybar/i3wmthemer_bar_launch.sh
 #exec_always --no-startup-id i3status-rust
-exec_always --no-startup-id ~/.config/polybar/launch.sh 
-exec_always --no-startup-id redshift-qt
+#exec_always --no-startup-id bash ~/.config/polybar/launch.sh 
+#exec_always --no-startup-id redshift-qt
 #exec_always --no-startup-id yakuake &
 exec_always --no-startup-ud aria2c --conf-path=/home/fengyuan/.aria2/aria2.conf --enable-rpc --rpc-listen-all=true --rpc-allow-origin-all -D 
+
+#exec --no-startup-id bash /home/fengyuan/.config/i3/i3-master-stack/i3_master
+# swap to master node
+bindsym $mod+m nop swap master 
+# go to master node
+bindsym $mod+shift+m nop go master 
+# enable/disable master layout in current workspace
+bindsym $mod+alt+m nop master toggle 
 
 
 
@@ -275,13 +293,13 @@ exec_always --no-startup-ud aria2c --conf-path=/home/fengyuan/.aria2/aria2.conf 
 
 
 # class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.focused          #bd93f9 #bd93f9 #F8F8F2 #bd93f9   #bd93f9
+client.focused_inactive #44475a #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #44475a #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #ff5555 #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.background       #F8F8F2
+client.background       #282a36
 
 
 
@@ -290,7 +308,7 @@ client.background       #F8F8F2
 
 # Gaps
 gaps inner 5
-gaps outer 0
+gaps outer 5
 
 
 #smart_gaps on
@@ -343,7 +361,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2db-
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 bindsym Print exec deepin-screen-recorder
 bindsym Shift+Ctrl+t exec sgtk-menu
-bindsym $mod+Shift+n exec kill -s USR1 $(pidof deadd-notification-center)
+#bindsym $mod+Shift+n exec kill -s USR1 $(pidof deadd-notification-center)
 
 # touchpad on and off controller on laptop with Fn+<touchpad control functional key>
 bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
